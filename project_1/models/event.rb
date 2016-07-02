@@ -36,9 +36,6 @@ class Event
     
   end
 
-  # sql = "SELECT athletes.* FROM athletes INNER JOIN athletes_events ON athletes_events.athlete_id = athletes.id WHERE athletes_events.event_id = #{id} AND athletes_events.athlete_finishing_position = 3"
-  # return Athlete.map_items(sql)
-
   def self.all()
     sql = "SELECT * FROM events"
     return Event.map_items(sql)

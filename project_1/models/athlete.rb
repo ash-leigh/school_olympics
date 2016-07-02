@@ -52,6 +52,7 @@ class Athlete
     save_medal(medals)
   end
 
+
   def self.all()
     sql = "SELECT * FROM athletes"
     return Athlete.map_items(sql)
