@@ -21,8 +21,8 @@ event_2 = Event.new({'type' => 'hula hooping'}).save
 event_3 = Event.new({'type' => 'three legged race'}).save
 
 athletes_events_1 = AthletesEvents.new({'athlete_id' => athlete_1.id, 'event_id' => event_1.id, 'athlete_finishing_position' => 1}).save
-athletes_events_2 = AthletesEvents.new({'athlete_id' => athlete_1.id, 'event_id' => event_2.id, 'athlete_finishing_position' => 2}).save
-athletes_events_3 = AthletesEvents.new({'athlete_id' => athlete_1.id, 'event_id' => event_3.id, 'athlete_finishing_position' => 1}).save
+athletes_events_2 = AthletesEvents.new({'athlete_id' => athlete_2.id, 'event_id' => event_2.id, 'athlete_finishing_position' => 2}).save
+athletes_events_3 = AthletesEvents.new({'athlete_id' => athlete_3.id, 'event_id' => event_3.id, 'athlete_finishing_position' => 3}).save
 
 binding.pry
 nil
