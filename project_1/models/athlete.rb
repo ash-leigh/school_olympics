@@ -1,6 +1,7 @@
 require('pg')
 require_relative('../db/sql_runner')
 require_relative('event')
+require_relative('medal')
 
 class Athlete
 
@@ -23,6 +24,32 @@ class Athlete
   def events()
     sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id}"
     return Event.map_items(sql)
+  end
+
+  def save_medal(medals)
+    sql = "UPDATE athletes SET medals = ARRAY['#{medals}'] WHERE id = #{id}"
+    run(sql)
+  end
+
+  def recieve_gold_medal
+    events = events()
+    athlete = events.map{|event| event.first_place()}.flatten
+    medals = athlete.map {|athlete| Medal.new('gold')}
+    save_medal(medals)
+  end
+
+  def recieve_silver_medal
+    events = events()
+    athlete = events.map{|event| event.second_place()}.flatten
+    medals = athlete.map {|athlete| Medal.new('silver')}
+    save_medal(medals)
+  end
+
+  def recieve_bronze_medal
+    events = events()
+    athlete = events.map{|event| event.third_place()}.flatten
+    medals = athlete.map {|athlete| Medal.new('bronze')}
+    save_medal(medals)
   end
 
   def self.all()
