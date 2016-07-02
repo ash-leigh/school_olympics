@@ -14,14 +14,14 @@ class Athlete
   end
 
   def save()
-    sql = "INSERT INTO athletes (name, medals, nation_id) VALUES ('#{@name}', '#{@medals}', '#{@nation_id}') RETURNING *"
+    sql = "INSERT INTO athletes (name, medals, nation_id) VALUES ('#{@name}', ARRAY['#{@medals}'], '#{@nation_id}') RETURNING *"
     athlete = run(sql).first
     result = Athlete.new(athlete)
     return result
   end
 
   def events()
-    sql = "SELECT events.* FROM events INNER JOIN athletes_events ON events.id = athletes_events.events_id WHERE atheltes_events.athletes_id = #{id}"
+    sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id}"
     return Event.map_items(sql)
   end
 

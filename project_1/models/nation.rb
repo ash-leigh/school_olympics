@@ -26,8 +26,8 @@ class Nation
 
   def events()
     all_athletes = athletes()
-    events = all_athletes.map {|athlete| athletes.events()}
-    result = events.uniq { |event| event.id }
+    events = all_athletes.map {|athlete| athlete.events()}.flatten
+    result = events.uniq {|event| event.id()}
     return result
   end
 
