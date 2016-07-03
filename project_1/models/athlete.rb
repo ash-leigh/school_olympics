@@ -22,9 +22,23 @@ class Athlete
     return result
   end
 
+  def update_details(name, nation_id)
+    sql = "UPDATE athletes SET name = '#{name}', nation_id = '#{nation_id}' WHERE id = '#{id}'"
+    run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM athletes WHERE id = #{id}"
+    run(sql)
+  end
+
   def events()
     sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id}"
     return Event.map_items(sql)
+  end
+
+  def remove_athletes_from_event()
+    
   end
 
   def save_medal(medals)

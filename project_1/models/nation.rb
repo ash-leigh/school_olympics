@@ -24,9 +24,19 @@ class Nation
     run(sql)
   end
 
+  def delete()
+    sql = "DELETE FROM nations WHERE id = #{id}"
+    run(sql)
+  end
+
   def athletes()
     sql = "SELECT athletes.* FROM athletes WHERE athletes.nation_id = #{id}"
     return Athlete.map_items(sql)
+  end
+
+  def delete_all_athletes()
+    sql = "DELETE FROM athletes WHERE athletes.nation_id = #{id}"
+    run(sql)
   end
 
   def events()

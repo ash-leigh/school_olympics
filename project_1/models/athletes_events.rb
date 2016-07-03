@@ -20,8 +20,13 @@ class AthletesEvents
     return AthletesEvents.new(athlete_event)
   end
 
-  def update_result(options)
-    sql = "UPDATE athletes_events SET athlete_id = '#{options['athlete_id']}', event_id = '#{options['event_id']}', athlete_finishing_position = '#{options['athlete_finishing_position']}' WHERE id = '#{id}'"
+  def update_result(athlete_id, event_id, athlete_finishing_position)
+    sql = "UPDATE athletes_events SET athlete_id = '#{athlete_id}', event_id = '#{event_id}', athlete_finishing_position = '#{athlete_finishing_position}' WHERE id = '#{id}'"
+    run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM athletes_events WHERE id = #{id}"
     run(sql)
   end
 

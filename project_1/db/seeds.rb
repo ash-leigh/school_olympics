@@ -7,6 +7,7 @@ require_relative('../models/medal')
 require_relative('../models/athletes_events')
 
 nation_1 = Nation.new({'name' => 'Scotland'}).save
+nation_2 = Nation.new({'name' => 'Ireland'}).save
 
 gold_medal = Medal.new("Gold")
 silver_medal = Medal.new("Silver")
