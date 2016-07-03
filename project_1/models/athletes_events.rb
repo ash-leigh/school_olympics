@@ -20,6 +20,11 @@ class AthletesEvents
     return AthletesEvents.new(athlete_event)
   end
 
+  def update_result(options)
+    sql = "UPDATE athletes_events SET athlete_id = '#{options['athlete_id']}', event_id = '#{options['event_id']}', athlete_finishing_position = '#{options['athlete_finishing_position']}' WHERE id = '#{id}'"
+    run(sql)
+  end
+
   def self.map_items(sql)
     athletes_events_data = run(sql)
     result = athletes_events_data.map { |athletes_events| AthletesEvents.new(athletes_events)}

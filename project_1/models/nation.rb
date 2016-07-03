@@ -19,6 +19,11 @@ class Nation
     return result
   end
 
+  def update_name(name)
+    sql = "UPDATE nations SET name = '#{name}' WHERE id = '#{id}'"
+    run(sql)
+  end
+
   def athletes()
     sql = "SELECT athletes.* FROM athletes WHERE athletes.nation_id = #{id}"
     return Athlete.map_items(sql)

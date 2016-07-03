@@ -19,6 +19,11 @@ class Event
     return result
   end
 
+  def update_type(type)
+    sql = "UPDATE events SET type = '#{type}' WHERE id = '#{id}'"
+    run(sql)
+  end
+
   def athletes()
     sql = "SELECT athletes.* FROM athletes INNER JOIN athletes_events ON athletes_events.athlete_id = athletes.id WHERE athletes_events.event_id = #{id}"
     return Athlete.map_items(sql)
