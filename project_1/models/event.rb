@@ -36,7 +36,8 @@ class Event
 
   def first_place()
     sql = "SELECT athletes.* FROM athletes INNER JOIN athletes_events ON athletes_events.athlete_id = athletes.id WHERE athletes_events.event_id = #{id} AND athletes_events.athlete_finishing_position = 1"
-    return Athlete.map_items(sql)
+    athlete = Athlete.map_item(sql)
+    
   end
 
   def second_place()

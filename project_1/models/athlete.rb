@@ -45,13 +45,6 @@ class Athlete
     return nation.name
   end
 
-  # def profile()
-  #   profile = {}
-  # end
-
-  # def remove_athletes_from_event()
-  # end
-
   def gold_medals()
     sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 1"
     number = medal_count(sql)
@@ -65,6 +58,38 @@ class Athlete
   def bronze_medals()
     sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 3"
     return medal_count(sql)
+  end
+
+  def total_medals()
+    total_medals = gold_medals() + silver_medals() + bronze_medals()
+    return total_medals
+  end
+
+  def save_medal(medals)
+    sql = "UPDATE athletes SET medals = ARRAY['#{medals}'] WHERE id = #{id}"
+    run(sql)
+  end
+
+  def recieve_medals()
+    medals_array = []
+    gold_medals_array = []
+    silver_medals_array = []
+    bronze_medals_array = []
+      while medals_array.length < total_medals()
+        while gold_medals_array.length < gold_medals()
+          gold_medals_array << Medal.new('Gold')
+          medals_array << gold_medals_array
+        end
+        while silver_medals_array.length < silver_medals()
+          silver_medals_array << Medal.new('Silver')
+          medals_array << silver_medals_array
+        end
+        while bronze_medals_array.length < bronze_medals()
+          bronze_medals_array << Medal.new('Bronze')
+          medals_array << bronze_medals_array
+        end
+      end
+    save_medal(medals_array)
   end
 
   def self.all()
