@@ -31,6 +31,32 @@ class Nation
     return result
   end
 
+  def medal_count(sql)
+    count = run(sql).to_a
+    result = count.map{|number| number["count"]}
+    return result[0].to_i
+  end
+
+  def total_gold_medals()
+    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes_events.athlete_finishing_position = 1"
+    return medal_count(sql)
+  end
+
+  def total_silver_medals()
+    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes_events.athlete_finishing_position = 2"
+    return medal_count(sql)
+  end
+
+  def total_bronze_medals()
+    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes_events.athlete_finishing_position = 3"
+    return medal_count(sql)
+  end
+
+  def total_points()
+    total_points = (total_gold_medals() * 5) + (total_silver_medals() * 3) + (total_bronze_medals() * 1)
+    return total_points
+  end
+
   def self.all()
     sql = "SELECT * FROM nations"
     return Nation.map_items(sql)
@@ -46,4 +72,5 @@ class Nation
     result = Nation.map_items(sql)
     return result.first
   end
+
 end

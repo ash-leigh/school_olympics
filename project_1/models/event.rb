@@ -1,6 +1,7 @@
 require('pg')
 require_relative('../db/sql_runner')
 require_relative('athlete')
+require_relative('medal')
 
 class Event
 
@@ -25,15 +26,16 @@ class Event
 
   def first_place()
     sql = "SELECT athletes.* FROM athletes INNER JOIN athletes_events ON athletes_events.athlete_id = athletes.id WHERE athletes_events.event_id = #{id} AND athletes_events.athlete_finishing_position = 1"
-    return Athlete.map_items(sql)
   end
 
   def second_place()
-    
+    sql = "SELECT athletes.* FROM athletes INNER JOIN athletes_events ON athletes_events.athlete_id = athletes.id WHERE athletes_events.event_id = #{id} AND athletes_events.athlete_finishing_position = 2"
+    return Athlete.map_item(sql)
   end
 
   def third_place()
-    
+    sql = "SELECT athletes.* FROM athletes INNER JOIN athletes_events ON athletes_events.athlete_id = athletes.id WHERE athletes_events.event_id = #{id} AND athletes_events.athlete_finishing_position = 3"
+    return Athlete.map_item(sql)
   end
 
   def self.all()

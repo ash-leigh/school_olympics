@@ -2,6 +2,7 @@ require('pg')
 require_relative('../db/sql_runner')
 require_relative('event')
 require_relative('medal')
+require_relative('athletes_events')
 
 class Athlete
 
@@ -32,26 +33,28 @@ class Athlete
   end
 
   def recieve_gold_medal
+    medals_array = @medals
     events = events()
     athlete = events.map{|event| event.first_place()}.flatten
-    medals = athlete.map {|athlete| Medal.new('gold')}
-    save_medal(medals)
+    athlete.map {|athlete| medals_array << Medal.new('gold').to_s}
+    save_medal(medals_array)
   end
 
   def recieve_silver_medal
+    medals_array = [@medals]
     events = events()
     athlete = events.map{|event| event.second_place()}.flatten
-    medals = athlete.map {|athlete| Medal.new('silver')}
-    save_medal(medals)
+    athlete.map {|athlete| medals_array << Medal.new('silver')}
+    save_medal(medals_array)
   end
 
   def recieve_bronze_medal
+    medals_array = [@medals]
     events = events()
     athlete = events.map{|event| event.third_place()}.flatten
-    medals = athlete.map {|athlete| Medal.new('bronze')}
-    save_medal(medals)
+    athlete.map {|athlete| medals_array << Medal.new('bronze')}
+    save_medal(medals_array)
   end
-
 
   def self.all()
     sql = "SELECT * FROM athletes"
@@ -68,4 +71,5 @@ class Athlete
     result = Athlete.map_items(sql)
     return result.first
   end
+
 end
