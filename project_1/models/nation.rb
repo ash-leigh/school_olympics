@@ -1,5 +1,6 @@
 require('pg')
 require_relative('../db/sql_runner')
+require_relative('medal_count')
 require_relative('athlete')
 require_relative('event')
 
@@ -44,12 +45,6 @@ class Nation
     events = all_athletes.map {|athlete| athlete.events()}.flatten
     result = events.uniq {|event| event.id()}
     return result
-  end
-
-  def medal_count(sql)
-    count = run(sql).to_a
-    result = count.map{|number| number["count"]}
-    return result[0].to_i
   end
 
   def total_gold_medals()

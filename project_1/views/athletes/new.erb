@@ -1,0 +1,13 @@
+<0>Add a new athlete</p>
+
+<form action="/albums" method="post">
+ <label for="name">Name:</label>
+ <input type="text" name="name">
+ <label for="artist_id">By which artist</label>
+ <select name="artist_id">
+  <% @artists.each do |artist|%>
+   <option value="<%= artist.id %>"><%= artist.name %></option>
+ <% end %>
+ </select>
+ <input type='submit' value="Add album">
+</form>

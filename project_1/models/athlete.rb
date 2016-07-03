@@ -1,7 +1,9 @@
 require('pg')
 require_relative('../db/sql_runner')
+require_relative('nation')
 require_relative('event')
 require_relative('medal')
+require_relative('medal_count')
 require_relative('athletes_events')
 
 class Athlete
@@ -37,37 +39,32 @@ class Athlete
     return Event.map_items(sql)
   end
 
-  def remove_athletes_from_event()
-    
+  def nation()
+    sql = "SELECT nations.* FROM nations WHERE id = #{@nation_id}"
+    nation = Nation.map_item(sql)
+    return nation.name
   end
 
-  def save_medal(medals)
-    sql = "UPDATE athletes SET medals = ARRAY['#{medals}'] WHERE id = #{id}"
-    run(sql)
+  # def profile()
+  #   profile = {}
+  # end
+
+  # def remove_athletes_from_event()
+  # end
+
+  def gold_medals()
+    sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 1"
+    number = medal_count(sql)
   end
 
-  def recieve_gold_medal
-    medals_array = @medals
-    events = events()
-    athlete = events.map{|event| event.first_place()}.flatten
-    athlete.map {|athlete| medals_array << Medal.new('gold').to_s}
-    save_medal(medals_array)
+  def silver_medals()
+    sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 2"
+    return medal_count(sql)
   end
 
-  def recieve_silver_medal
-    medals_array = [@medals]
-    events = events()
-    athlete = events.map{|event| event.second_place()}.flatten
-    athlete.map {|athlete| medals_array << Medal.new('silver')}
-    save_medal(medals_array)
-  end
-
-  def recieve_bronze_medal
-    medals_array = [@medals]
-    events = events()
-    athlete = events.map{|event| event.third_place()}.flatten
-    athlete.map {|athlete| medals_array << Medal.new('bronze')}
-    save_medal(medals_array)
+  def bronze_medals()
+    sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 3"
+    return medal_count(sql)
   end
 
   def self.all()
