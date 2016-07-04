@@ -1,0 +1,15 @@
+<% profile = @event.profile %>
+<br>
+Type:
+<%= profile["type"] %>
+<br>
+Name:
+<%= profile["name"] %>
+<br>
+Athletes:
+<% profile["athletes"].each do |athlete| %>
+<br>
+
+<%= athlete.name %>
+<br>
+<% end %>

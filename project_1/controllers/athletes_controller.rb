@@ -1,6 +1,3 @@
-require_relative('../db/sql_runner')
-require_relative('../models/athlete')
-
 get '/athletes' do
   @athletes = Athlete.all()
   erb(:'athletes/index')
@@ -17,10 +14,10 @@ end
 #   erb(:'albums/create')
 # end
 
-# get '/albums/:id' do
-#   @album = Album.find(params[:id])
-#   erb(:'albums/show')
-# end
+get '/athletes/:id' do
+  @athlete = Athlete.find(params[:id])
+  erb(:'athletes/show')
+end
 
 # post '/albums/:id/delete' do
 #   Album.destroy(params[:id])

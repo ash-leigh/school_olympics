@@ -1,0 +1,49 @@
+<% profile = @athlete.profile %>
+<br>
+Name:
+<%= profile["name"] %>
+<br>
+Nation:
+<%= profile["nation"] %>
+<br>
+Events:
+<% profile["events"].each do |event| %>
+<br>
+<%= event.name %>
+<br>
+<% end %>
+<br>
+Gold medals:
+<%= profile["gold_medals"] %>
+<br>
+Gold medal events:
+<% profile["gold_medal_events"].each do |event| %>
+<br>
+<%= event.name %>
+<br>
+<% end %>
+<br>
+Silver medals:
+<%= profile["silver_medals"] %>
+<br>
+Silver medal events:
+<% profile["silver_medal_events"].each do |event| %>
+<br>
+<%= event.name %>
+<br>
+<% end %>
+<br>
+Bronze medals:
+<%= profile["bronze_medals"] %>
+<br>
+Bronze medal events:
+<% profile["bronze_medal_events"].each do |event| %>
+<br>
+<%= event.name %>
+<br>
+<% end %>
+<br>
+Total Medals:
+<%= profile["total_medals"] %>
+
+

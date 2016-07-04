@@ -79,8 +79,15 @@ class Athlete
   end
 
   def profile()
-    profile = {"name" => @name, "nation" => nation(), "event" => events(), "gold_medals" => number_gold_medals, "gold_medal_events" => gold_medal_events(), "silver_medals" => number_silver_medals, "silver_medal_events" => silver_medal_events(), "bronze_medals" => number_bronze_medals, "bronze_medal_events" => bronze_medal_events(), "total_medals" => total_medals()}
+    profile = {"name" => @name, "nation" => nation(), "events" => events(), "gold_medals" => number_gold_medals, "gold_medal_events" => gold_medal_events(), "silver_medals" => number_silver_medals, "silver_medal_events" => silver_medal_events(), "bronze_medals" => number_bronze_medals, "bronze_medal_events" => bronze_medal_events(), "total_medals" => total_medals()}
     return profile
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM athletes WHERE id=#{id}"
+    athlete = run(sql).first
+    result = Athlete.new(athlete)
+    return result
   end
 
   def self.all()

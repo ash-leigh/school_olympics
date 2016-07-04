@@ -11,12 +11,13 @@ CREATE TABLE nations (
 CREATE TABLE athletes (
   id SERIAL4 primary key,
   name VARCHAR(255) not null,
-  nation_id INT4 references nations(id) ON DELETE CASCADE,
+  nation_id INT4 references nations(id) ON DELETE CASCADE
 );
 
 CREATE TABLE events (
   id SERIAL4 primary key,
-  type VARCHAR(255)
+  type VARCHAR(255),
+  name VARCHAR(255)
 );
 
 CREATE TABLE athletes_events (
