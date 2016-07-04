@@ -1,0 +1,16 @@
+<p>Events</p>
+
+<% if @events.count > 0 %>
+
+<% @events.each do |event| %> 
+    <a href="/events/<%= event.id %>"><%= event.name %></a>
+<% end %>
+<% else %>
+  <p> Sorry there are no matching events </p>
+<% end %>
+
+<form method="get">
+  Search by event name
+  <input name="search" value="" type="text" />
+  <input type="submit" value="search" />
+</form>

@@ -1,0 +1,30 @@
+<% profile = @nation.profile %>
+<br>
+Name:
+<%= profile["name"] %>
+<br>
+Athletes:
+<% profile["athletes"].each do |athlete| %>
+<br>
+<%= athlete.name %>
+<br>
+<% end %>
+Events:
+<% profile["events"].each do |event| %>
+<br>
+<%= event.name %>
+<br>
+<% end %>
+<br>
+Gold medals:
+<%= profile["gold_medals"] %>
+<br>
+Silver medals:
+<%= profile["silver_medals"] %>
+<br>
+Bronze medals:
+<%= profile["bronze_medals"] %>
+<br>
+Total points:
+<%= profile["total_points"] %>
+<br>

@@ -1,36 +1,45 @@
 get '/athletes' do
-  @athletes = Athlete.all()
-  erb(:'athletes/index')
+  #INDEX
+  query = params[:search]
+  @athletes = Athlete.all(query)
+  erb ( :'athletes/index' )
 end
 
 # get '/albums/new' do
-#   @artists = Artist.all
-#   erb(:'albums/new')
+#   #NEW
+#   @artists = Artist.all()
+#   erb( :'albums/new' )
 # end
 
 # post '/albums' do
-#   @album = Album.new(params)
-#   @album.save()
-#   erb(:'albums/create')
+#   #CREATE
+#  @album = Album.new( params )
+#  @album.save()
+#  redirect to('/albums')
 # end
 
+
 get '/athletes/:id' do
+  #SHOW
   @athlete = Athlete.find(params[:id])
   erb(:'athletes/show')
 end
 
-# post '/albums/:id/delete' do
-#   Album.destroy(params[:id])
-#   redirect to("/albums")
-# end
-
 # get '/albums/:id/edit' do
-#   @album = Album.find(params[:id])
+#   #EDIT
+#   @album = Album.find( params[:id] )
 #   @artists = Artist.all()
-#   erb(:'albums/edit')
+#   erb( :'albums/edit' )
 # end
 
-# post '/albums/:id' do
-#   @album = Album.update(params)
-#   redirect to("/albums/#{params[:id]}")
+# put '/albums/:id' do
+#   #UPDATE
+#  @album = Album.update( params )
+#  redirect to( "/albums/#{params[:id]}" )
+# end
+
+# delete '/albums/:id' do
+#   #DELETE
+#   Album.destroy( params[:id] )
+#   redirect to('/albums')
 # end

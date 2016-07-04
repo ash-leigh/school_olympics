@@ -1,6 +1,16 @@
 <p>Athletes</p>
 
-<% @athletes.each do |athlete| %>
- <b>Name:</b>
- <p><%= athlete.name()%></p>
-<%end%>
+<% if @athletes.count > 0 %>
+
+<% @athletes.each do |athlete| %> 
+    <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
+<% end %>
+<% else %>
+  <p> Sorry there are no matching athletes </p>
+<% end %>
+
+<form method="get">
+  Search by athlete name
+  <input name="search" value="" type="text" />
+  <input type="submit" value="search" />
+</form>

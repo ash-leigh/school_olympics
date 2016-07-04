@@ -67,8 +67,22 @@ class Nation
     return total_points
   end
 
-  def self.all()
+  def profile()
+    profile = {"name" => @name, "athletes" => athletes(), "events" => events(), "gold_medals" => total_gold_medals, "silver_medals" => total_silver_medals, "bronze_medals" => total_bronze_medals, "total_points" => total_points()}
+    return profile
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM nations WHERE id=#{id}"
+    nation = run(sql).first
+    result = Nation.new(nation)
+    return result
+  end
+
+  def self.all(query = "")
+    query = query.to_s
     sql = "SELECT * FROM nations"
+    sql = sql + " WHERE name LIKE '%#{query}%'" unless query.empty?
     return Nation.map_items(sql)
   end
 

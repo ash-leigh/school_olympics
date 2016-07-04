@@ -90,8 +90,10 @@ class Athlete
     return result
   end
 
-  def self.all()
+  def self.all(query = "")
+    query = query.to_s
     sql = "SELECT * FROM athletes"
+    sql = sql + " WHERE name LIKE '%#{query}%'" unless query.empty?
     return Athlete.map_items(sql)
   end
 

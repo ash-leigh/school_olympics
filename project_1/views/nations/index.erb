@@ -1,0 +1,16 @@
+<p>Nations</p>
+
+<% if @nations.count > 0 %>
+
+<% @nations.each do |nation| %> 
+    <a href="/nations/<%= nation.id %>"><%= nation.name %></a>
+<% end %>
+<% else %>
+  <p> Sorry there are no matching nations </p>
+<% end %>
+
+<form method="get">
+  Search by nation name
+  <input name="search" value="" type="text" />
+  <input type="submit" value="search" />
+</form>
