@@ -1,4 +1,5 @@
 require('pg')
+require('pry-byebug')
 require_relative('../db/sql_runner')
 require_relative('nation')
 require_relative('event')
@@ -13,7 +14,7 @@ class Athlete
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
-    @medals = options['medals']
+    @medals = []
     @nation_id = options['nation_id'].to_i
   end
 
@@ -45,23 +46,38 @@ class Athlete
     return nation.name
   end
 
-  def gold_medals()
+  def number_gold_medals()
     sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 1"
     number = medal_count(sql)
   end
 
-  def silver_medals()
+  def gold_medals()
+    sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 1"
+    return Event.map_items(sql)
+  end
+
+  def number_silver_medals()
     sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 2"
     return medal_count(sql)
   end
 
-  def bronze_medals()
+  def silver_medals()
+    sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 2"
+    return Event.map_items(sql)
+  end
+
+  def number_bronze_medals()
     sql = "SELECT COUNT(events.*) FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 3"
     return medal_count(sql)
   end
 
+  def bronze_medals()
+    sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id} AND athletes_events.athlete_finishing_position = 3"
+    return Event.map_items(sql)
+  end
+
   def total_medals()
-    total_medals = gold_medals() + silver_medals() + bronze_medals()
+    total_medals = number_gold_medals() + number_silver_medals() + number_bronze_medals()
     return total_medals
   end
 
@@ -72,24 +88,25 @@ class Athlete
 
   def recieve_medals()
     medals_array = []
-    gold_medals_array = []
-    silver_medals_array = []
-    bronze_medals_array = []
-      while medals_array.length < total_medals()
-        while gold_medals_array.length < gold_medals()
-          gold_medals_array << Medal.new('Gold')
-          medals_array << gold_medals_array
-        end
-        while silver_medals_array.length < silver_medals()
-          silver_medals_array << Medal.new('Silver')
-          medals_array << silver_medals_array
-        end
-        while bronze_medals_array.length < bronze_medals()
-          bronze_medals_array << Medal.new('Bronze')
-          medals_array << bronze_medals_array
-        end
-      end
-    save_medal(medals_array)
+    event_hash = {"Gold" => gold_medals(), "Silver" => silver_medals(), "Bronze" => bronze_medals()}
+
+    event_hash["Gold"].each do |medal|
+      medals_array << Medal.new("Gold")
+    end
+
+    event_hash["Silver"].each do |medal|
+      medals_array << Medal.new("Silver")
+    end
+
+    event_hash["Bronze"].each do |medal|
+      medals_array << Medal.new("Bronze")
+    end
+    return medals_array
+  end
+
+  def profile()
+    profile = {"name" => @name, "nation" => nation(), "event" => events(), "gold_medals" => number_gold_medals, "silver_medals" => number_silver_medals, "bronze_medals" => number_bronze_medals, "total_medals" => total_medals()}
+    return profile
   end
 
   def self.all()
