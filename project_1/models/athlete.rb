@@ -22,11 +22,6 @@ class Athlete
     return result
   end
 
-  def update_details(name, nation_id)
-    sql = "UPDATE athletes SET name = '#{name}', nation_id = '#{nation_id}' WHERE id = '#{id}'"
-    run(sql)
-  end
-
   def delete()
     sql = "DELETE FROM athletes WHERE id = #{id}"
     run(sql)
@@ -81,6 +76,10 @@ class Athlete
   def profile()
     profile = {"name" => @name, "nation" => nation(), "events" => events(), "gold_medals" => number_gold_medals, "gold_medal_events" => gold_medal_events(), "silver_medals" => number_silver_medals, "silver_medal_events" => silver_medal_events(), "bronze_medals" => number_bronze_medals, "bronze_medal_events" => bronze_medal_events(), "total_medals" => total_medals()}
     return profile
+  end
+
+  def self.update(options)
+    run("UPDATE athletes SET name='#{options['name']}', nation_id=#{options['nation_id']} WHERE id=#{options['id']}")
   end
 
   def self.find(id)

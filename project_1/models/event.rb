@@ -19,11 +19,6 @@ class Event
     return result
   end
 
-  def update_type(type, name)
-    sql = "UPDATE events SET type = '#{type}' name = '#{name}' WHERE id = '#{id}'"
-    run(sql)
-  end
-
   def delete()
     sql = "DELETE FROM events WHERE id = #{id}"
     run(sql)
@@ -37,6 +32,10 @@ class Event
   def profile()
     profile = {"type" => @type, "name" => @name, "athletes" => athletes()}
     return profile
+  end
+
+  def self.update(options)
+    run("UPDATE events SET type ='#{options['type']}', name='#{options['name']}' WHERE id=#{options['id']}")
   end
 
   def self.find(id)

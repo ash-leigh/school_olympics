@@ -11,7 +11,8 @@ Athletes:
 <% profile["athletes"].each do |athlete| %>
 <br>
 <%=count%>
-<%= athlete.name %>
+<a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
 <% count += 1%>
 <br>
 <% end %>
+<a href="/events/<%= @event.id %>/edit">Edit</a>

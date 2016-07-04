@@ -1,12 +1,7 @@
 <p>Athletes</p>
 
-<% if @athletes.count > 0 %>
-
 <% @athletes.each do |athlete| %> 
     <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
-<% end %>
-<% else %>
-  <p> Sorry there are no matching athletes </p>
 <% end %>
 
 <form method="get">

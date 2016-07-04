@@ -6,13 +6,13 @@ Name:
 Athletes:
 <% profile["athletes"].each do |athlete| %>
 <br>
-<%= athlete.name %>
+<a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
 <br>
 <% end %>
 Events:
 <% profile["events"].each do |event| %>
 <br>
-<%= event.name %>
+<a href="/events/<%= event.id %>"><%= event.name %></a>
 <br>
 <% end %>
 <br>

@@ -9,7 +9,7 @@ Nation:
 Events:
 <% profile["events"].each do |event| %>
 <br>
-<%= event.name %>
+<a href="/events/<%= event.id %>"><%= event.name %></a>
 <br>
 <% end %>
 <br>
@@ -19,7 +19,7 @@ Gold medals:
 Gold medal events:
 <% profile["gold_medal_events"].each do |event| %>
 <br>
-<%= event.name %>
+<a href="/events/<%= event.id %>"><%= event.name %></a>
 <br>
 <% end %>
 <br>
@@ -29,7 +29,7 @@ Silver medals:
 Silver medal events:
 <% profile["silver_medal_events"].each do |event| %>
 <br>
-<%= event.name %>
+<a href="/events/<%= event.id %>"><%= event.name %></a>
 <br>
 <% end %>
 <br>
@@ -39,11 +39,13 @@ Bronze medals:
 Bronze medal events:
 <% profile["bronze_medal_events"].each do |event| %>
 <br>
-<%= event.name %>
+<a href="/events/<%= event.id %>"><%= event.name %></a>
 <br>
 <% end %>
 <br>
 Total Medals:
 <%= profile["total_medals"] %>
+<br>
+<a href="/athletes/<%= @athlete.id %>/edit">Edit</a>
 
 

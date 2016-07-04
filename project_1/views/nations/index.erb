@@ -1,12 +1,7 @@
 <p>Nations</p>
 
-<% if @nations.count > 0 %>
-
 <% @nations.each do |nation| %> 
     <a href="/nations/<%= nation.id %>"><%= nation.name %></a>
-<% end %>
-<% else %>
-  <p> Sorry there are no matching nations </p>
 <% end %>
 
 <form method="get">
