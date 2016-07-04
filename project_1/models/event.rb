@@ -1,7 +1,6 @@
 require('pg')
 require_relative('../db/sql_runner')
 require_relative('athlete')
-require_relative('medal')
 
 class Event
 

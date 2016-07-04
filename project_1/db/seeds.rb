@@ -3,19 +3,14 @@ require 'pry-byebug'
 require_relative('../models/nation')
 require_relative('../models/athlete')
 require_relative('../models/event')
-require_relative('../models/medal')
 require_relative('../models/athletes_events')
 
 nation_1 = Nation.new({'name' => 'Scotland'}).save
 nation_2 = Nation.new({'name' => 'Ireland'}).save
 
-# gold_medal = Medal.new("Gold")
-# silver_medal = Medal.new("Silver")
-# bronze_medal = Medal.new("Bronze")
-
-athlete_1 = Athlete.new({'name' => 'Ashleigh', 'nation_id' => nation_1.id, 'medals' => []}).save
-athlete_2 = Athlete.new({'name' => 'John', 'nation_id' => nation_1.id, 'medals' => []}).save
-athlete_3 = Athlete.new({'name' => 'Shaun', 'nation_id' => nation_1.id, 'medals' => []}).save
+athlete_1 = Athlete.new({'name' => 'Ashleigh', 'nation_id' => nation_1.id}).save
+athlete_2 = Athlete.new({'name' => 'John', 'nation_id' => nation_1.id}).save
+athlete_3 = Athlete.new({'name' => 'Shaun', 'nation_id' => nation_1.id}).save
 
 event_1 = Event.new({'type' => 'egg and spoon race'}).save
 event_2 = Event.new({'type' => 'hula hooping'}).save

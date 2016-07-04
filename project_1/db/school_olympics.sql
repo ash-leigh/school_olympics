@@ -12,7 +12,6 @@ CREATE TABLE athletes (
   id SERIAL4 primary key,
   name VARCHAR(255) not null,
   nation_id INT4 references nations(id) ON DELETE CASCADE,
-  medals TEXT[]
 );
 
 CREATE TABLE events (
