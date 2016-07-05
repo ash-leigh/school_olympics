@@ -2,6 +2,35 @@ div {
   max-width: 100%;
 }
 
+table {
+  border-collapse: collapse;
+  text-align: left;
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #074C84;
+  width: 100%;
+}
+
+table tr, td{
+  border: 3px solid #F9B035;
+  padding: 10px;
+}
+
+table a {
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #074C84;
+}
+
+table a:hover {
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #F9B035;
+}
+
 header {
   width:100%;
   height: inherit;
@@ -245,6 +274,23 @@ header {
   cursor: pointer;
 }
 
+.edit {
+  width: 100px;
+  height: 100px;
+  text-align: right;
+}
+
+.edit a {
+  font-family: 'Arimo', sans-serif;
+  font-size: 25px;
+  color:#F9B035;
+  text-decoration: none;
+}
+
+.edit a:hover {
+  color: #074C84;
+}
+
 .box_content_blue {
   font-family: 'Arimo', sans-serif;
   font-size: 30px;
@@ -254,12 +300,32 @@ header {
   line-height: 200%;
 }
 
+.profile_box {
+ background: rgba(255, 255, 255, 0.8);
+ border: 5px solid #074C84;
+ padding: 20px;
+ margin: 20px;
+ display: flex;
+ flex-wrap: wrap;
+ height: 750px;
+ text-align: center;
+}
+
+.profile_box img {
+  width: 350px;
+  height: 250px;
+}
+
 .page_tile_text {
   text-transform: uppercase;
 }
 
 .blue_gradient {
   background: linear-gradient(#ffffff, #0882C6);
+}
+
+.yellow_gradient {
+  background: linear-gradient(#ffffff, #F9B035);
 }
 
 #home_background_image {
@@ -274,6 +340,14 @@ header {
   height: 80em;
   width: 80em;
   background: url('backgrounds/athletes.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+#events_background_image {
+  height: 80em;
+  width: 80em;
+  background: url('backgrounds/event_background_image.png') no-repeat center center fixed;
   background-size: cover;
   overflow-y: scroll;
 }

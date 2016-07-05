@@ -1,11 +1,35 @@
-<p>Events</p>
+<div class= "yellow_gradient">
+  <div id = "events_background_image">
 
-<% @events.each do |event| %> 
-    <a href="/events/<%= event.id %>"><%= event.name %></a>
-<% end %>
+    <div class= "pages">
+      <div class="page_headers"> Challenges </div>
 
-<form method="get">
-  Search by event name
-  <input name="search" value="" type="text" />
-  <input type="submit" value="search" />
-</form>
+      <div class = "page_content_blue">
+
+        <div class= "sub_nav"><a href="events/new">+ new challenge</a></div>
+
+        <form method="get">
+          find challenge
+          <input name="search" value="" type="text" id="text_box"/>
+          <input type="submit" value="search" id="search_button"/>
+        </form>
+
+      </div>
+
+      <div class="page_content_yellow">
+
+        <% @events.each do |event| %> 
+        <div class= "col-3 page_tile">
+          <div class= "page_tile_text"><a href="/events/<%= event.id %>"><%= event.name %></a></div>
+          <div class= "page_tile_text"><%= event.type %></a></div>
+          <div class= "edit_link"><a href="/events/<%= event.id %>/edit">edit</a></div>
+        </div>
+        <% end %>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

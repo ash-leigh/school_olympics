@@ -9,8 +9,8 @@ nation_1 = Nation.new({'name' => 'Scotland'}).save
 nation_2 = Nation.new({'name' => 'Ireland'}).save
 
 athlete_1 = Athlete.new({'name' => 'Ashleigh', 'avatar_url' => '/student_avatars/rio_avatars.png', 'nation_id' => nation_1.id}).save
-athlete_2 = Athlete.new({'name' => 'John', 'nation_id' => nation_1.id}).save
-athlete_3 = Athlete.new({'name' => 'Shaun', 'nation_id' => nation_1.id}).save
+athlete_2 = Athlete.new({'name' => 'John', 'avatar_url' => '/student_avatars/rio_avatars_1.png', 'nation_id' => nation_1.id}).save
+athlete_3 = Athlete.new({'name' => 'Shaun', 'avatar_url' => '/student_avatars/rio_avatars_2.png', 'nation_id' => nation_1.id}).save
 
 event_1 = Event.new({'type' => 'sport', 'name' => 'egg and spoon race'}).save
 event_2 = Event.new({'type' => 'sport', 'name' => 'hula hooping'}).save
