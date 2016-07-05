@@ -1,13 +1,18 @@
+div {
+  max-width: 100%;
+}
+
 header {
   width:100%;
   height: inherit;
-  background: rgba(255, 255, 255, 0);
+  background: rgba(255, 255, 255, 0.8);
   position: fixed;
   display:block;
+  border-bottom: 5px solid #F9B035;
 }
 
 .grid_container {
-  width: 100px;
+  width: 100%;
   max-width: 2560px;
   background: rgba(255, 255, 255, 0);
 }
@@ -90,6 +95,171 @@ header {
   padding-top: 250px;
   max-width: 100%;
   max-height: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.page_headers {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: #074C84;
+  text-align: left;
+}
+
+.page_content_yellow {
+  font-family: 'Arimo', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #F9B035;
+}
+
+.page_content_yellow a {
+  font-family: 'Arimo', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #F9B035;
+  text-decoration: none;
+}
+
+.page_content_yellow a:hover {
+  color: #074C84;
+}
+
+.sub_nav {
+  margin: 20px;
+  text-align: right;  
+}
+
+.sub_nav a {
+  font-family: 'Arimo', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #074C84;
+  text-decoration: none;
+}
+
+.sub_nav a:hover {
+  font-family: 'Arimo', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #F9B035;
+  text-decoration: none;
+}
+
+#search_button {
+  width: 100px;
+  background-color: #F9B035;
+  border-radius: 5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  border: 5px solid #F9B035; 
+  cursor: pointer;
+}
+
+#text_box {
+  width: 200px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 5px solid #F9B035;
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  color: #074C84;
+}
+
+.page_content_blue {
+  font-family: 'Arimo', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #074C84;
+  text-align: center;
+}
+
+.edit_link a {
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #074C84;
+  text-align: center;
+}
+
+.edit_link a:hover {
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #F9B035;
+  text-align: center;
+}
+
+.page_tile {
+  background: rgba(255, 255, 255, 0.8);
+  border: 5px solid #074C84;
+  padding: 20px;
+  margin: 20px;
+/*  display: flex;
+  flex-wrap: wrap;*/
+  text-align: center;
+}
+
+.page_tile img {
+  width: 300px;
+  height: 214.29px;
+}
+
+.page_box {
+    background: rgba(255, 255, 255, 0.8);
+    border: 5px solid #074C84;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 550px;
+    text-align: left;
+}
+
+.page_box img {
+  width: 175px;
+  height: 125px;
+
+}
+
+.save_button_container {
+  text-align: center;
+}
+
+#save_button {
+  width: 200px;
+  background-color: #F9B035;
+  border-radius: 5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  border: 5px solid #F9B035; 
+  cursor: pointer;
+}
+
+.box_content_blue {
+  font-family: 'Arimo', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #074C84;
+  text-align: center;
+  line-height: 200%;
+}
+
+.page_tile_text {
+  text-transform: uppercase;
+}
+
+.blue_gradient {
+  background: linear-gradient(#ffffff, #0882C6);
 }
 
 #home_background_image {
@@ -99,6 +269,16 @@ header {
   background-size: cover;
   overflow-y: scroll;
 }
+
+#athletes_background_image {
+  height: 80em;
+  width: 80em;
+  background: url('backgrounds/athletes.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+
 
 
 

@@ -1,15 +1,34 @@
-<div id= "home_background_image" class = "pages">
+<div class= "blue_gradient">
+  <div id = "athletes_background_image">
 
-  <p>Athletes</p>
+    <div class= "pages">
 
-  <% @athletes.each do |athlete| %> 
-  <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
-  <% end %>
+      <div class="page_headers"> Competitors </div>
+      
+      <div class = "page_content_blue">
 
-  <form method="get">
-    Search by athlete name
-    <input name="search" value="" type="text" />
-    <input type="submit" value="search" />
-  </form>
+        <div class= "sub_nav"><a href="athletes/new">+ new competitor</a></div>
+        
+        <form method="get">
+          find student
+          <input name="search" value="" type="text" id="text_box"/>
+          <input type="submit" value="search" id="search_button"/>
 
+        </form>
+      </div>
+
+      <div class="page_content_yellow">
+
+        <% @athletes.each do |athlete| %> 
+        <div class= "col-3 page_tile">
+          <div><img src=<%= athlete.avatar_url%> alt="avatar"></div>
+          <div class= "page_tile_text"><a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a></div>
+          <div class= "edit_link"><a href="/athletes/<%= athlete.id %>/edit">edit</a></div>
+        </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
 </div>
