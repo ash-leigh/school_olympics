@@ -6,24 +6,31 @@
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 </head>
-<body>
-<div class="grid-container">
 
-  <div class="row">
-    <div class="col-3"><div class="logo"><a href="/"><img src="/logo.png" alt="logo"height="200"></a></div></div> 
-    <div class="col-2 nav"><a href="nations">Schools</a></div>
-    <div class="col-2 nav"><a href="athletes">Competitors</a></div>
-    <div class="col-2 nav"><a href="events">Challenges</a></div>
-    <div class="col-2 nav"><a href="athletes_events">Results</a></div>
-    <div class="col-1"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-12">
-      <%=yield%>
+<header>
+  <div class="grid-container">
+    <div class="row">
+      <div class="col-3"><div class="logo"><a href="/"><img src="/logo.png" alt="logo"height="200"></a></div></div> 
+      <div class="col-2 nav"><a href="nations">Schools</a></div>
+      <div class="col-2 nav"><a href="athletes">Competitors</a></div>
+      <div class="col-2 nav"><a href="events">Challenges</a></div>
+      <div class="col-2 nav"><a href="athletes_events">Results</a></div>
+      <div class="col-1"></div>
     </div>
   </div>
- </div>
+</header>
+<body>
+
+
+
+  
+
+ <!--  <div class="row">
+ <div class="col-12"> -->
+  <%=yield%>
+    <!-- </div>
+  </div> -->
+
 
 </body>
 </html>

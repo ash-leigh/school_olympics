@@ -1,14 +1,22 @@
+header {
+  width:100%;
+  height: inherit;
+  background: rgba(255, 255, 255, 0);
+  position: fixed;
+  display:block;
+}
+
 .grid_container {
   width: 100px;
   max-width: 2560px;
   background: rgba(255, 255, 255, 0);
 }
+
 .row:before, 
 .row:after {
   content:"";
   display: table ;
   clear:both;
-  background: rgba(255, 255, 155, 0.5);
 }
 [class*='col-'] {
    float: left;
@@ -16,7 +24,6 @@
    width: 8.33%; 
    padding: 10px;
    align-content: center;
-   /*background: rgba(255, 255, 255, 0);*/
 }
 .col-1{
    width: 8.33%;
@@ -58,7 +65,6 @@
 
 .logo{
   text-align: center;
-  background: rgba(255, 255, 255, 0);
 }
 
 .nav{
@@ -68,26 +74,31 @@
   color: #074C84;
   text-align: center;
   padding-top: 70px;
-  background: rgba(255, 255, 255, 0);
 }
 
 .nav a {
   color: #074C84;
   text-decoration: none;
 }
+
 .nav a:hover {
   color:#F9B035;
   text-decoration: none;
 }
-/*.background_image {
-  background-repeat:no-repeat;
-  background-size:cover;
-}*/
+
+.pages {
+  padding-top: 250px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
 #home_background_image {
-  height: 100em;
-  width: 100em;
+  height: 150em;
+  width: 150em;
   background: url('backgrounds/home_page_background.png') no-repeat center center fixed;
   background-size: cover;
   overflow-y: scroll;
 }
+
+
 

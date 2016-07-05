@@ -1,11 +1,15 @@
-<p>Athletes</p>
+<div id= "home_background_image" class = "pages">
 
-<% @athletes.each do |athlete| %> 
-    <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
-<% end %>
+  <p>Athletes</p>
 
-<form method="get">
-  Search by athlete name
-  <input name="search" value="" type="text" />
-  <input type="submit" value="search" />
-</form>
+  <% @athletes.each do |athlete| %> 
+  <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
+  <% end %>
+
+  <form method="get">
+    Search by athlete name
+    <input name="search" value="" type="text" />
+    <input type="submit" value="search" />
+  </form>
+
+</div>
