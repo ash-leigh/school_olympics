@@ -9,9 +9,18 @@
         <img src=<%= profile["avatar_url"]%> alt="avatar">
         <div class="page_headers"><%= profile["name"] %></div>
 
+
         <div class="edit">
           <a href="/athletes/<%= @athlete.id %>/edit">edit</a>
         </div>
+
+
+        <div class="delete">
+          <form action="/delete" method="post">
+            <a href="/athletes/<%= @athlete.id %>/delete">delete</a>
+          </form>
+        </div>
+
 
         <table>
           <tr>

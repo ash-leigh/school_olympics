@@ -33,3 +33,9 @@ get '/nations/:id/edit' do
   @nation = Nation.find(params[:id])
   erb( :'nations/edit' )
 end
+
+put '/nations/:id' do
+  #UPDATE
+ @nation = Nation.update( params )
+ redirect to( "/nations/#{params[:id]}" )
+end

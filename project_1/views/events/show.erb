@@ -1,27 +1,49 @@
+<% profile = @event.profile %>
+
 <div class= "yellow_gradient">
   <div id = "events_background_image">
 
     <div class= "pages">
 
-<% profile = @event.profile %>
-<br>
-Type:
-<%= profile["type"] %>
-<br>
-Name:
-<%= profile["name"] %>
-<br>
-Athletes:
-<% count = 1 %>
-<% profile["athletes"].each do |athlete| %>
-<br>
-<%=count%>
-<a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
-<% count += 1%>
-<br>
-<% end %>
-<a href="/events/<%= @event.id %>/edit">Edit</a>
+      <div class= "profile_box">
 
-</div>
-</div>
+        <div class="page_headers"><%= profile["name"] %></div>
+
+        <div class="edit">
+          <a href="/events/<%= @event.id %>/edit">edit</a>
+        </div>
+
+        <div class="delete">
+          <form action="/delete" method="post">
+            <a href="/events/<%= @event.id %>/delete">delete</a>
+          </form>
+        </div>
+        <div class="col-12">
+          <div class = "page_content_yellow">
+            <td>Type:</td>
+            <td><%= profile["type"] %></td>
+          </div>
+        </div>
+        <table>
+          <tr>
+            <td>Finishing position</td>
+            <td>Competitors</td>
+          </tr>
+
+          <% count = 1 %>
+          <% profile["athletes"].each do |athlete| %>
+          <tr>
+            <td><%=count%></td>
+            <td>
+              <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
+              <% count += 1%>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
 </div>

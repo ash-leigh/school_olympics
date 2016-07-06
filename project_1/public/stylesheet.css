@@ -291,6 +291,23 @@ header {
   color: #074C84;
 }
 
+.delete {
+  width: 100px;
+  height: 100px;
+  text-align: right;
+}
+
+.delete a {
+  font-family: 'Arimo', sans-serif;
+  font-size: 25px;
+  color:#E73652;
+  text-decoration: none;
+}
+
+.delete a:hover {
+  color: #074C84;
+}
+
 .box_content_blue {
   font-family: 'Arimo', sans-serif;
   font-size: 30px;

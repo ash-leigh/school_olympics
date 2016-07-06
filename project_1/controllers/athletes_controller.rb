@@ -37,8 +37,8 @@ put '/athletes/:id' do
  redirect to( "/athletes/#{params[:id]}" )
 end
 
-# delete '/albums/:id' do
-#   #DELETE
-#   Album.destroy( params[:id] )
-#   redirect to('/albums')
-# end
+delete '/athletes/:id' do
+  #DELETE
+  Athlete.delete( params[:id] )
+  redirect to('/athletes')
+end

@@ -23,11 +23,6 @@ class Athlete
     return result
   end
 
-  def delete()
-    sql = "DELETE FROM athletes WHERE id = #{id}"
-    run(sql)
-  end
-
   def events()
     sql = "SELECT events.* FROM events INNER JOIN athletes_events ON athletes_events.event_id = events.id WHERE athletes_events.athlete_id = #{id}"
     return Event.map_items(sql)
@@ -77,6 +72,11 @@ class Athlete
   def profile()
     profile = {"name" => @name, "avatar_url" => @avatar_url, "nation" => nation(), "events" => events(), "gold_medals" => number_gold_medals, "gold_medal_events" => gold_medal_events(), "silver_medals" => number_silver_medals, "silver_medal_events" => silver_medal_events(), "bronze_medals" => number_bronze_medals, "bronze_medal_events" => bronze_medal_events(), "total_medals" => total_medals()}
     return profile
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM athletes WHERE id = #{id}"
+    run(sql)
   end
 
   def self.update(options)
