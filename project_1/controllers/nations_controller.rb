@@ -27,3 +27,9 @@ get '/nations/:id' do
   @nation = Nation.find(params[:id])
   erb(:'nations/show')
 end
+
+get '/nations/:id/edit' do
+  #EDIT
+  @nation = Nation.find(params[:id])
+  erb( :'nations/edit' )
+end

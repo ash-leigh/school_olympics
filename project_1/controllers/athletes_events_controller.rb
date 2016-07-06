@@ -4,36 +4,37 @@ get '/athletes_events' do
   erb (:'athletes_events/index')
 end
 
-# get '/athletes/new' do
-#   #NEW
-#   @nations = Nation.all()
-#   erb(:'athletes/new')
-# end
+get '/athletes_events/new' do
+  #NEW
+  @athletes = Athlete.all()
+  @events = Event.all()
+  erb(:'athletes_events/new')
+end
 
-# post '/athletes' do
-#   #CREATE
-#  @athlete = Athlete.new( params )
-#  @athlete.save()
-#  redirect to('/athletes/create')
-# end
+post '/athletes' do
+  #CREATE
+ @athlete = Athlete.new( params )
+ @athlete.save()
+ redirect to('/athletes/create')
+end
 
-# get '/athletes/create' do
-#   #CREATE
-#   erb(:'athletes/create')
-# end
+get '/athletes/create' do
+  #CREATE
+  erb(:'athletes/create')
+end
 
-# get '/athletes/:id' do
-#   #SHOW
-#   @athlete = Athlete.find(params[:id])
-#   erb(:'athletes/show')
-# end
+get '/athletes_events/:id' do
+  #SHOW
+  @athlete = Athlete.find(params[:id])
+  erb(:'athletes/show')
+end
 
-# get '/athletes/:id/edit' do
-#   #EDIT
-#   @athlete = Athlete.find( params[:id] )
-#   @nations = Nation.all()
-#   erb( :'athletes/edit' )
-# end
+get '/athletes_events/:id/edit' do
+  #EDIT
+  @athletes = Athlete.all()
+  @events = Event.all()
+  erb(:'athletes_events/edit')
+end
 
 # put '/athletes/:id' do
 #   #UPDATE

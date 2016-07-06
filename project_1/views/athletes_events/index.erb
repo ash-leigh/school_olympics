@@ -16,6 +16,7 @@
                     <td>Silver</td>
                     <td>Bronze</td>
                     <td>Total points</td>
+                    <td>Edit</td>
                 </tr>
                 <% nations = @nations.each do |all_nations|%>
                 <tr>
@@ -24,6 +25,7 @@
                     <td><%=all_nations[0]['silver_medals']%></td>
                     <td><%=all_nations[0]['bronze_medals']%></td>
                     <td><%=all_nations[1]%></td>
+                    <td><a href="athletes_events/<%=all_nations[0]['id'] %>/edit">edit</td>
                     <tr>
                         <% end %>
                     </table>

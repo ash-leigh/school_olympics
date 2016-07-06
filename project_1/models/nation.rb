@@ -63,7 +63,7 @@ class Nation
   end
 
   def profile()
-    profile = [{"name" => @name, "athletes" => athletes(), "events" => events(), "gold_medals" => total_gold_medals, "silver_medals" => total_silver_medals, "bronze_medals" => total_bronze_medals}, total_points()]
+    profile = [{"id" => @id, "name" => @name, "athletes" => athletes(), "events" => events(), "gold_medals" => total_gold_medals, "silver_medals" => total_silver_medals, "bronze_medals" => total_bronze_medals}, total_points()]
     return profile
   end
 

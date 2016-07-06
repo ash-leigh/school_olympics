@@ -3,14 +3,14 @@
 
     <div class= "pages">
 
-      <div class="page_headers"> Add new result </div>
+      <div class="page_headers"> Edit result</div>
 
       <div class="page_box">
 
       <label for="athlete_id" class= "box_content_blue">Competitor</label>
       <select name="athlete_id">
         <% @athletes.each do |athlete|%>
-        <option value="<%= athlete.id %>"><%= 'selected if @athletes_events.athlete_id == athlete_id'%>><%=athlete.name %></option>
+        <option value="<%= athlete.id %>"><%= athlete.name %></option>
         <% end %>
       </select>
 
@@ -20,6 +20,8 @@
         <option value="<%= event.id %>"><%= event.name %></option>
         <% end %>
       </select>
+
+      
 
 
       <label for="name" class = "box_content_blue">Finishing position</label>
@@ -31,4 +33,3 @@
      </div>
    </div>
  </div>
-
