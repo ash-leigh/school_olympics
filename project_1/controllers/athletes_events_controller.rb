@@ -11,36 +11,33 @@ get '/athletes_events/new' do
   erb(:'athletes_events/new')
 end
 
-post '/athletes' do
+post '/athletes_events' do
   #CREATE
- @athlete = Athlete.new( params )
- @athlete.save()
- redirect to('/athletes/create')
+ @athletes_events = AthletesEvents.new( params )
+ @athletes_events.save()
+ redirect to('/athletes_events')
 end
 
-get '/athletes/create' do
-  #CREATE
-  erb(:'athletes/create')
-end
+# get '/athletes_events/:id' do
+#   #SHOW
+#   @athlete_event = AthletesEvents.find(params[:id])
+#   erb(:'athletes_events/show')
+# end
 
-get '/athletes_events/:id' do
-  #SHOW
-  @athlete = Athlete.find(params[:id])
-  erb(:'athletes/show')
-end
+# get '/athletes_events/:id/edit' do
+#   #EDIT
+#   @athlete_event = AthletesEvents.find(params[:id])
+#   @athletes = Athlete.all()
+#   @events = Event.all()
+#   erb(:'athletes_events/edit')
+# end
 
-get '/athletes_events/:id/edit' do
-  #EDIT
-  @athletes = Athlete.all()
-  @events = Event.all()
-  erb(:'athletes_events/edit')
-end
-
-# put '/athletes/:id' do
+# put '/athletes_events/:id' do
 #   #UPDATE
-#  @athlete = Athlete.update( params )
+#  @athletes_events = AthletesEvents.update( params )
 #  redirect to( "/athletes/#{params[:id]}" )
 # end
+
 
 # delete '/albums/:id' do
 #   #DELETE

@@ -31,6 +31,13 @@ class AthletesEvents
     run(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM athletes_events WHERE id=#{id}"
+    athletes_events = run(sql).first
+    result = AthletesEvents.new(athletes_events)
+    return result
+  end
+
   def self.map_items(sql)
     athletes_events_data = run(sql)
     result = athletes_events_data.map { |athletes_events| AthletesEvents.new(athletes_events)}

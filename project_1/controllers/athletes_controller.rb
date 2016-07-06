@@ -15,12 +15,7 @@ post '/athletes' do
   #CREATE
  @athlete = Athlete.new( params )
  @athlete.save()
- redirect to('/athletes/create')
-end
-
-get '/athletes/create' do
-  #CREATE
-  erb(:'athletes/create')
+ redirect to('/athletes')
 end
 
 get '/athletes/:id' do

@@ -7,28 +7,36 @@
 
       <div class="page_box">
 
-      <label for="athlete_id" class= "box_content_blue">Competitor</label>
-      <select name="athlete_id">
-        <% @athletes.each do |athlete|%>
-        <option value="<%= athlete.id %>"><%= 'selected if @athletes_events.athlete_id == athlete_id'%>><%=athlete.name %></option>
-        <% end %>
-      </select>
+        <form action="/athletes_events" method="post">
 
-      <label for="event_id" class= "box_content_blue">Event</label>
-      <select name="event_id">
-        <% @events.each do |event|%>
-        <option value="<%= event.id %>"><%= event.name %></option>
-        <% end %>
-      </select>
+          <label for="athlete_id" class= "box_content_blue">Competitor</label>
+          <select name="athlete_id">
+            <% @athletes.each do |athlete|%>
+            <option value="<%= athlete.id %>"><%= athlete.name %></option>
+            <% end %>
+          </select>
 
 
-      <label for="name" class = "box_content_blue">Finishing position</label>
-      <input type="text" name="name" id= "text_box">
+          <label for="event_id" class= "box_content_blue">Event</label>
+          <select name="event_id">
+            <% @events.each do |event|%>
+            <option value="<%= event.id %>"><%= event.name %></option>
+            <% end %>
+          </select>
 
+
+          <label for="athlete_finishing_position" class = "box_content_blue">Finishing position</label>
+          <input type="number" name= "athlete_finishing_position" id= "text_box">
+
+
+          <div class= "save_button_container">
+            <input type='submit' value="update result" id="save_button">
+          </div>
+        </form>
         
-       </div>
+      </div>
 
-     </div>
-   </div>
- </div>
+    </div>
+  </div>
+</div>
 

@@ -10,7 +10,7 @@
       <label for="athlete_id" class= "box_content_blue">Competitor</label>
       <select name="athlete_id">
         <% @athletes.each do |athlete|%>
-        <option value="<%= athlete.id %>"><%= athlete.name %></option>
+        <option value="<%= athlete.id %>"><%= 'selected' if @athletes_events.athlete_id == athlete.id %>><%=athlete.name %></option>
         <% end %>
       </select>
 
@@ -21,7 +21,11 @@
         <% end %>
       </select>
 
-      
+      <select name="nation_id">
+        <% @nations.each do |nation| %>
+        <option value="<%= nation.id %>" <%= 'selected' if @athlete.nation_id == nation.id %>><%= nation.name %></option>
+        <%  end %>
+      </select>
 
 
       <label for="name" class = "box_content_blue">Finishing position</label>
