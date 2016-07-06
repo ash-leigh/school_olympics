@@ -14,7 +14,7 @@ post '/nations' do
   #CREATE
  @nation = Nation.new( params )
  @nation.save()
- redirect to('/nations/create')
+ redirect to('/nations')
 end
 
 get '/nations/create' do

@@ -3,20 +3,24 @@
 
     <div class= "pages">
 
-<0>Add a new event</p>
+      <div class="page_headers"> Add new challenge</div>
 
-<form action="/events" method="post">
+      <div class="page_box">
 
- <label for="name">Name:</label>
- <input type="text" name="name">
+        <form action="/events" method="post">
 
- <label for="type">Type:</label>
- <input type="text" name="type">
- 
- </select>
- <input type='submit' value="Add event">
-</form>
+          <label for="name" class = "box_content_blue">Name</label>
+          <input type="text" name="name" id= "text_box">
 
-</div>
+          <label for="type" class = "box_content_blue">Type</label>
+          <input type="text" name="type" id= "text_box">
+
+        </select>
+        <input type='submit' value="add new challenge" id="save_button">
+      </form>
+
+    </div>
+
+  </div>
 </div>
 </div>

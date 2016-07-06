@@ -22,6 +22,7 @@ table a {
   font-size: 20px;
   font-weight: bold;
   color: #074C84;
+  text-decoration: none;
 }
 
 table a:hover {
@@ -136,6 +137,14 @@ header {
   text-align: left;
 }
 
+.home_page_header {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #F9B035;
+  text-align: center;
+}
+
 .page_content_yellow {
   font-family: 'Arimo', sans-serif;
   font-size: 40px;
@@ -232,11 +241,32 @@ header {
 /*  display: flex;
   flex-wrap: wrap;*/
   text-align: center;
+  height: 100%;
 }
 
 .page_tile img {
   width: 300px;
   height: 214.29px;
+}
+
+.event_page_tile {
+  background: rgba(255, 255, 255, 0.8);
+  border: 5px solid #074C84;
+  padding: 20px;
+  margin: 20px;
+/*  display: flex;
+  flex-wrap: wrap;*/
+  text-align: center;
+  height: 5em;
+}
+
+.event_page_tile_text {
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #074C84;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .page_box {
@@ -271,6 +301,42 @@ header {
   vertical-align: center;
   text-decoration: none;
   border: 5px solid #F9B035; 
+  cursor: pointer;
+}
+
+.school_button_container {
+  position: fixed;
+  padding-left: 450px;
+  padding-top: 50px;
+}
+
+#school_button {
+  width: 200px;
+  background-color: #074C84;
+  border-radius: 5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  border: 5px solid #074C84; 
+  cursor: pointer;
+  align-self: center;
+  margin-left: 450px;
+  margin-top: 50px;
+}
+
+#school_button a {
+  background-color: #074C84;
+  border-radius: 5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  border: 5px solid #074C84; 
   cursor: pointer;
 }
 

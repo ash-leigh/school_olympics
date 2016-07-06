@@ -32,7 +32,9 @@
             <td>Challenges</td>
             <td>
               <% profile["events"].each do |event| %>
+              
               <a href="/events/<%= event.id %>"><%= event.name %></a>
+              
               <% end %>
             </td>
           </tr>
@@ -46,7 +48,9 @@
             <td>Gold medal challenges:</td>
             <td>
               <% profile["gold_medal_events"].each do |event| %>
+         
               <a href="/events/<%= event.id %>"><%= event.name %></a>
+          
               <% end %>
             </td>
           </tr>
@@ -60,7 +64,9 @@
             <td>Silver medal challenges:</td>
             <td>
               <% profile["silver_medal_events"].each do |event| %>
+      
               <a href="/events/<%= event.id %>"><%= event.name %></a>
+ 
               <% end %>
             </td>
           </tr>
@@ -74,7 +80,9 @@
             <td>Bronze medal challenges:</td>
             <td>
               <% profile["bronze_medal_events"].each do |event| %>
+ 
               <a href="/events/<%= event.id %>"><%= event.name %></a>
+
               <% end %>
             </td>
           </tr>
