@@ -1,0 +1,21 @@
+<div class= "red_gradient">
+  <div id = "results_background_image">
+
+    <div class= "pages">
+
+
+    <% @nations.each do |nation| %>
+
+    <% profile = nation.profile %>
+    <%= profile["name"] %>
+    <%= profile["gold_medals"] %>
+    <%= profile["silver_medals"] %>
+    <%= profile["bronze_medals"] %>
+    <%= profile["total_points"] %>
+
+    <% end %>
+
+
+    </div>
+  </div>
+</div>

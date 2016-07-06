@@ -7,6 +7,9 @@ require_relative('../models/athletes_events')
 
 nation_1 = Nation.new({'name' => 'Scotland'}).save
 nation_2 = Nation.new({'name' => 'Ireland'}).save
+nation_3 = Nation.new({'name' => 'England'}).save
+nation_4 = Nation.new({'name' => 'Wales'}).save
+
 
 athlete_1 = Athlete.new({'name' => 'Ashleigh', 'avatar_url' => '/student_avatars/rio_avatars.png', 'nation_id' => nation_1.id}).save
 athlete_2 = Athlete.new({'name' => 'John', 'avatar_url' => '/student_avatars/rio_avatars_1.png', 'nation_id' => nation_1.id}).save

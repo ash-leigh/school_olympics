@@ -328,6 +328,14 @@ header {
   background: linear-gradient(#ffffff, #F9B035);
 }
 
+.red_gradient {
+  background: linear-gradient(#ffffff, #E83B68);
+}
+
+.green_gradient {
+  background: linear-gradient(#ffffff, #00A361);
+}
+
 #home_background_image {
   height: 150em;
   width: 150em;
@@ -348,6 +356,22 @@ header {
   height: 80em;
   width: 80em;
   background: url('backgrounds/event_background_image.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+#nations_background_image {
+  height: 80em;
+  width: 80em;
+  background: url('backgrounds/nation_background.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+#results_background_image {
+  height: 80em;
+  width: 80em;
+  background: url('backgrounds/results_background.png') no-repeat center center fixed;
   background-size: cover;
   overflow-y: scroll;
 }
