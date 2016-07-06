@@ -3,19 +3,33 @@
 
     <div class= "pages">
 
+        <div class="page_headers"> Results </div>
 
-    <% @nations.each do |nation| %>
+        <div class= "sub_nav"><a href="athletes_events/new">+ new result</a></div>
 
-    <% profile = nation.profile %>
-    <%= profile["name"] %>
-    <%= profile["gold_medals"] %>
-    <%= profile["silver_medals"] %>
-    <%= profile["bronze_medals"] %>
-    <%= profile["total_points"] %>
+        <div class= "profile_box">
 
-    <% end %>
+            <table>
+                <tr>
+                    <td>School</td>
+                    <td>Gold</td>
+                    <td>Silver</td>
+                    <td>Bronze</td>
+                    <td>Total points</td>
+                </tr>
+                <% nations = @nations.each do |all_nations|%>
+                <tr>
+                    <td><%=all_nations[0]['name']%></td>
+                    <td><%=all_nations[0]['gold_medals']%></td>
+                    <td><%=all_nations[0]['silver_medals']%></td>
+                    <td><%=all_nations[0]['bronze_medals']%></td>
+                    <td><%=all_nations[1]%></td>
+                    <tr>
+                        <% end %>
+                    </table>
 
 
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>

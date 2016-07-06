@@ -2,6 +2,7 @@ require('pg')
 require_relative('../db/sql_runner')
 require_relative('athlete')
 require_relative('event')
+require_relative('nation')
 
 class AthletesEvents
 

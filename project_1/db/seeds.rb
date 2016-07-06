@@ -24,6 +24,8 @@ athletes_events_2 = AthletesEvents.new({'athlete_id' => athlete_2.id, 'event_id'
 athletes_events_3 = AthletesEvents.new({'athlete_id' => athlete_3.id, 'event_id' => event_1.id, 'athlete_finishing_position' => 2}).save
 
 
+# Nation.all_profiles_ordered()
+
 binding.pry
 nil
 

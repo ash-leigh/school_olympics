@@ -1,30 +1,62 @@
 <% profile = @nation.profile %>
-<br>
-Name:
-<%= profile["name"] %>
-<br>
-Athletes:
-<% profile["athletes"].each do |athlete| %>
-<br>
-<a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
-<br>
-<% end %>
-Events:
-<% profile["events"].each do |event| %>
-<br>
-<a href="/events/<%= event.id %>"><%= event.name %></a>
-<br>
-<% end %>
-<br>
-Gold medals:
-<%= profile["gold_medals"] %>
-<br>
-Silver medals:
-<%= profile["silver_medals"] %>
-<br>
-Bronze medals:
-<%= profile["bronze_medals"] %>
-<br>
-Total points:
-<%= profile["total_points"] %>
-<br>
+<% one_profile = profile[0] %>
+
+<div class= "green_gradient">
+  <div id = "nations_background_image">
+
+    <div class= "pages">
+     <div class= "profile_box">
+
+
+       <div class="page_headers"><%= one_profile["name"] %></div>
+
+       <div class="edit">
+         <a href="/nations/<%= @nation.id %>/edit">edit</a>
+       </div>
+
+       <table>
+        <tr>
+          <td> Competitors </td>
+          <td>
+            <% one_profile["athletes"].each do |athlete| %>
+            <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td> Challenges </td>
+          <td>
+            <% one_profile["events"].each do |event| %>
+            <a href="/events/<%= event.id %>"><%= event.name %></a>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Gold medals </td>
+          <td><%= one_profile["gold_medals"] %></td>
+        </tr>
+
+        <tr>
+          <td>Silver medals </td>
+          <td><%= one_profile["silver_medals"] %></td>
+        </tr>
+
+        <tr>
+          <td>Bronze medals </td>
+          <td><%= one_profile["bronze_medals"] %></td>
+        </tr>
+
+        <tr>
+          <td>Total points</td>
+          <td><%= profile[1] %></td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+</div>
+</div>

@@ -43,17 +43,17 @@ class Nation
   end
 
   def total_gold_medals()
-    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes_events.athlete_finishing_position = 1"
+    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes.nation_id = #{id} AND athletes_events.athlete_finishing_position = 1"
     return medal_count(sql)
   end
 
   def total_silver_medals()
-    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes_events.athlete_finishing_position = 2"
+    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes.nation_id = #{id} AND athletes_events.athlete_finishing_position = 2"
     return medal_count(sql)
   end
 
   def total_bronze_medals()
-    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes_events.athlete_finishing_position = 3"
+    sql = "SELECT COUNT(nations.*) FROM nations INNER JOIN athletes ON nations.id = athletes.nation_id INNER JOIN athletes_events ON athletes.id = athletes_events.athlete_id WHERE athletes.nation_id = #{id} AND athletes_events.athlete_finishing_position = 3"
     return medal_count(sql)
   end
 
@@ -63,8 +63,15 @@ class Nation
   end
 
   def profile()
-    profile = {"name" => @name, "athletes" => athletes(), "events" => events(), "gold_medals" => total_gold_medals, "silver_medals" => total_silver_medals, "bronze_medals" => total_bronze_medals, "total_points" => total_points()}
+    profile = [{"name" => @name, "athletes" => athletes(), "events" => events(), "gold_medals" => total_gold_medals, "silver_medals" => total_silver_medals, "bronze_medals" => total_bronze_medals}, total_points()]
     return profile
+  end
+
+  def self.all_profiles_ordered()
+    nations = Nation.all()
+    result = nations.map {|nation| nation.profile()}
+    result_table = result.sort {|nation| nation[1]}
+    return result_table.reverse
   end
 
   def self.update(options)

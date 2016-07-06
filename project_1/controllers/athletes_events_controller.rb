@@ -1,6 +1,6 @@
 get '/athletes_events' do
   #INDEX
-  @nations = Nation.all
+  @nations = Nation.all_profiles_ordered
   erb (:'athletes_events/index')
 end
 
